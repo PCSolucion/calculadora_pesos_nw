@@ -51,7 +51,7 @@ body {
 
 .c-weights-table th, .c-weights-table td {
     border: 1px solid #444;
-    padding: 30px;
+    padding: 7px;
     text-align: center;
     background-color: rgba(30, 30, 30, 0.8);
     color: #ffffff;
@@ -60,16 +60,16 @@ body {
 
 .c-weight {
     cursor: pointer;
-    padding: 25px 30px;
+    width: 100%; /* Ensures the button takes the full width of the cell */
+    padding: 25px 0; /* Adjust padding to maintain button height without side padding */
     border: none;
     background-color: #333;
     color: #ffffff;
     font-size: 1.4em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .c-weight:hover {
-    background-color: #555;
     transform: scale(1.05);
 }
 
@@ -78,10 +78,39 @@ body {
     color: #ffffff;
 }
 
+.c-weight--active[data-value="1.5"]:not([data-part="pantalones"]),
+.c-weight--active[data-value="2.0"],
+.c-weight--active[data-value="3.50001"],
+.c-weight--active[data-value="2.7"] {
+    background-color: #52b874; /* Green for specific values */
+}
+
+.c-weight--active[data-value="0"] {
+    background-color: #d35453; /* Pesopluma */
+}
+
+.c-weight--active[data-value="2.6"],
+.c-weight--active[data-value="6.2"],
+.c-weight--active[data-value="2.6"][data-part="pantalones"],
+.c-weight--active[data-value="5.4"],
+.c-weight--active[data-value="3.500001"],
+.c-weight--active[data-value="3.5"][data-part="pantalones"] {
+    background-color: #ff9900; /* Light orange for specific values */
+}
+
+.c-weight--active[data-value="4.7"],
+.c-weight--active[data-value="11"],
+.c-weight--active[data-value="6.3"] {
+    background-color: #ff4500; /* Reddish orange for specific values */
+}
+
 .c-weight-split-td {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Change to column to stack buttons vertically */
+    justify-content: center;
+    align-items: center;
     padding: 0;
+    gap: 5px; /* Vertical gap between buttons */
 }
 
 .c-suggestions {
@@ -154,7 +183,7 @@ body {
 }
 
 .c-weights-bonus--active {
-    background-color: #008ec2;
+    background-color: #47166d4b;
     color: #ffffff;
 }
 
