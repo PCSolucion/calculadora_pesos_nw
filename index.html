@@ -9,6 +9,23 @@
 <body>
     <div class="c-content">
         <div class="c-weights-wrap">
+            <div class="language-selector">
+                <button class="language-btn" data-lang="es">
+                    <img src="https://flagcdn.com/es.svg" alt="Español" width="24" height="18">
+                </button>
+                <button class="language-btn" data-lang="en">
+                    <img src="https://flagcdn.com/us.svg" alt="English" width="24" height="18">
+                </button>
+                <button class="language-btn" data-lang="de">
+                    <img src="https://flagcdn.com/de.svg" alt="Deutsch" width="24" height="18">
+                </button>
+                <button class="language-btn" data-lang="pl">
+                    <img src="https://flagcdn.com/pl.svg" alt="Polski" width="24" height="18">
+                </button>
+                <button class="language-btn" data-lang="ru">
+                    <img src="https://flagcdn.com/ru.svg" alt="Русский" width="24" height="18">
+                </button>
+            </div>
             <div class="imgarmor">
                 <div class="c-armor-result__val"></div>
             </div>
@@ -31,7 +48,7 @@
                             <tr>
                                 <th>Torso</th>
                                 <td class="c-weight-split-td">
-                                    <button class="c-weight pesopluma" type="button" data-value="0" data-armor="0">Peso Pluma</button>
+                                    <button class="c-weight pesopluma" type="button" data-value="0" data-armor="0" data-translate="pesopluma">Peso Pluma</button>
                                     <button class="c-weight" type="button" data-value="3.50001" data-armor="240">3.5</button>
                                 </td>
                                 <td><button class="c-weight" type="button" data-value="6.2" data-armor="437">6.2</button></td>
@@ -65,7 +82,6 @@
                     </table>
                 </div>
                 <div class="c-suggestions">
-                    <h3>Combinaciones populares</h3>
                     <ul>
                         <li><button class="combination-button ligera" data-combination="ligera-normal">Ligera normal</button></li>
                         <li><button class="combination-button ligera" data-combination="ligera">Ligera con pesopluma</button></li>
@@ -129,5 +145,6 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="translations.js"></script>
 </body>
 </html>

@@ -1,3 +1,69 @@
+// Variable global para almacenar los textos originales
+const originalTexts = new Map();
+
+// Función para traducir el texto
+function translateText(text, lang) {
+    if (!translations[lang] || !translations[lang][text]) {
+        console.log(`No translation found for "${text}" in ${lang}`);
+        return text;
+    }
+    return translations[lang][text];
+}
+
+// Función para actualizar todos los textos traducibles
+function updateTranslations(lang) {
+    console.log(`Updating translations to ${lang}`);
+    
+    // Actualizar títulos de la tabla
+    document.querySelectorAll('.c-weights-table th').forEach(th => {
+        const originalText = originalTexts.get(th);
+        if (originalText) {
+            th.textContent = translateText(originalText, lang);
+        }
+    });
+
+    // Actualizar botones de combinación
+    document.querySelectorAll('.combination-button').forEach(button => {
+        const originalText = originalTexts.get(button);
+        if (originalText) {
+            button.textContent = translateText(originalText, lang);
+        }
+    });
+
+    // Actualizar títulos de bonificaciones
+    document.querySelectorAll('.c-weights-bonus h3').forEach(h3 => {
+        const originalText = originalTexts.get(h3);
+        if (originalText) {
+            h3.textContent = translateText(originalText, lang);
+        }
+    });
+
+    // Actualizar título de peso total
+    const totalWeightTitle = document.querySelector('.total-weight h3');
+    if (totalWeightTitle) {
+        const originalText = originalTexts.get(totalWeightTitle);
+        if (originalText) {
+            totalWeightTitle.textContent = translateText(originalText, lang);
+        }
+    }
+
+    // Actualizar textos de bonificaciones
+    document.querySelectorAll('.c-weights-bonus li').forEach(li => {
+        const originalText = originalTexts.get(li);
+        if (originalText) {
+            li.textContent = translateText(originalText, lang);
+        }
+    });
+
+    // Actualizar elementos con data-translate
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (key) {
+            element.textContent = translateText(key, lang);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.c-weight');
     const combinationButtons = document.querySelectorAll('.combination-button');
@@ -6,6 +72,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const heavyBonus = document.querySelector('.c-weights-bonus-h');
     const totalValue = document.querySelector('.total-value');
     const weightBar = document.querySelector('.weight-bar');
+    
+    // Inicializar el selector de idiomas
+    const languageButtons = document.querySelectorAll('.language-btn');
+    let currentLang = 'es'; // Mantener registro del idioma actual
+    
+    // Establecer español como idioma por defecto
+    languageButtons[0].classList.add('active');
+    
+    // Guardar textos originales de la tabla
+    document.querySelectorAll('.c-weights-table th').forEach(th => {
+        originalTexts.set(th, th.textContent.trim());
+    });
+    
+    // Guardar textos originales de los botones de combinación
+    document.querySelectorAll('.combination-button').forEach(button => {
+        originalTexts.set(button, button.textContent.trim());
+    });
+    
+    // Guardar textos originales de los títulos de bonificaciones
+    document.querySelectorAll('.c-weights-bonus h3').forEach(h3 => {
+        originalTexts.set(h3, h3.textContent.trim());
+    });
+    
+    // Guardar texto original del título de peso total
+    const totalWeightTitle = document.querySelector('.total-weight h3');
+    if (totalWeightTitle) {
+        originalTexts.set(totalWeightTitle, 'Peso Total');
+    }
+    
+    // Guardar textos originales de las bonificaciones
+    document.querySelectorAll('.c-weights-bonus li').forEach(li => {
+        originalTexts.set(li, li.textContent.trim());
+    });
+    
+    languageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remover clase active de todos los botones
+            languageButtons.forEach(btn => btn.classList.remove('active'));
+            // Añadir clase active al botón clickeado
+            button.classList.add('active');
+            
+            // Obtener el idioma seleccionado
+            currentLang = button.getAttribute('data-lang');
+            // Actualizar las traducciones
+            updateTranslations(currentLang);
+        });
+    });
     
     combinationButtons.forEach(button => {
         button.addEventListener('click', function() {
