@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,8 +65,9 @@
                     </table>
                 </div>
                 <div class="c-suggestions">
-                    <h3>Mejores combinaciones:</h3>
-                    <ol>
+                    <h3>Combinaciones populares</h3>
+                    <ul>
+                        <li><button class="combination-button ligera" data-combination="ligera-normal">Ligera normal</button></li>
                         <li><button class="combination-button ligera" data-combination="ligera">Ligera con pesopluma</button></li>
                         <li><button class="combination-button ligera" data-combination="ligera-rode">Ligera con rodela</button></li>
                         <li><button class="combination-button ligera" data-combination="ligera-sin-escudo">Ligera sin escudo</button></li>
@@ -78,7 +79,14 @@
                         <li><button class="combination-button media" data-combination="media-lagrima">Media con escudo de lágrima</button></li>
                         <li><button class="combination-button media" data-combination="media-scutum">Media con scutum</button></li>
                         <li><button class="combination-button media" data-combination="media-scutum-pesopluma">Media con escutum y pesopluma</button></li>
-                    </ol>
+                    </ul>
+                    <div class="total-weight">
+                        <h3>Peso Total:</h3>
+                        <span class="total-value">0.0</span>
+                    </div>
+                    <div class="weight-bar-container">
+                        <div class="weight-bar"></div>
+                    </div>
                 </div>
             </div>
             <div class="c-weights-bonuses">
