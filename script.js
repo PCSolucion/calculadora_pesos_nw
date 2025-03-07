@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (combination === 'ligera-lagrima') {
                 setCombination(['1.5', '0', '1.5', '2.0', '1.5', '5.4']);
             } else if (combination === 'media-rode') {
-                setCombination(['2.6', '3.5', '4.7', '3.500001', '4.7', '2.7']);
+                setCombination(['2.6', '3.50001', '4.7', '3.500001', '4.7', '2.7']);
             } else if (combination === 'media-rode-pesopluma') {
                 setCombination(['4.7', '0', '4.7', '6.3', '2.6', '2.7']);
             } else if (combination === 'media-pesopluma') {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (combination === 'media-lagrima') {
                 setCombination(['2.6', '6.2', '2.6', '3.500001', '2.6', '5.4']);
             } else if (combination === 'media-scutum') {
-                setCombination(['1.5', '3.5', '1.5', '3.500001', '1.5', '11']);
+                setCombination(['1.5', '3.50001', '1.5', '3.500001', '1.5', '11']);
             } else if (combination === 'media-scutum-pesopluma') {
                 setCombination(['1.5', '0', '1.5', '6.3', '2.6', '11']);
             }
